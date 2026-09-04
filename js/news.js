@@ -1,19 +1,10 @@
-const newsGrid = document.querySelector("#newsGrid");
-const searchInput = document.querySelector("#searchInput");
-const categorySelect = document.querySelector("#categorySelect");
+const API_URL = "https://aninews.vercel.app/api/news?limit=10";
 
-let newsData = [];
+const newsGrid = document.querySelector("#newsGrid");
 
 async function getNews() {
 	try {
-		newsGrid.innerHTML = `
-			<div class="loading">
-				<i class="fa-solid fa-spinner fa-spin"></i>
-				<p>Loading anime news...</p>
-			</div>
-		`;
-
-		const response = await fetch("https://aninews.vercel.app/api/news?limit=10");
+		const response = await fetch(API_URL);
 
 		if (!response.ok) {
 			throw new Error("API Error: " + response.status);
@@ -23,12 +14,56 @@ async function getNews() {
 
 		console.log(result);
 
-		newsData = result.articles || [];
+		const articles = result.data?.articles || result.data || [];
 
-		renderNews(newsData);
+		newsGrid.innerHTML = "";
+
+		articles.forEach(function(item) {
+			const card = document.createElement("article");
+
+			card.className = "news-card";
+
+			card.innerHTML = `
+				<div class="news-image">
+					<img
+						src="${item.image || "https://via.placeholder.com/600x400"}"
+						alt="${item.title || "Anime News"}"
+					>
+					<span class="news-category">
+						${item.source || "Anime News"}
+					</span>
+				</div>
+
+				<div class="news-content">
+					<p class="news-date">
+						<i class="fa-regular fa-calendar"></i>
+						${item.date
+							? new Date(item.date).toLocaleDateString("vi-VN")
+							: ""}
+					</p>
+
+					<h3>${item.title || "Anime News"}</h3>
+
+					<p>
+						${item.excerpt || "No description available."}
+					</p>
+
+					<a
+						href="${item.link || "#"}"
+						target="_blank"
+						class="read-more"
+					>
+						Read More
+						<i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			`;
+
+			newsGrid.appendChild(card);
+		});
 
 	} catch (error) {
-		console.log(error);
+		console.error(error);
 
 		newsGrid.innerHTML = `
 			<div class="loading">
@@ -38,121 +73,5 @@ async function getNews() {
 		`;
 	}
 }
-
-function renderNews(news) {
-	newsGrid.innerHTML = "";
-
-	if (news.length === 0) {
-		newsGrid.innerHTML = `
-			<div class="loading">
-				<p>Không tìm thấy tin tức.</p>
-			</div>
-		`;
-
-		return;
-	}
-
-	news.forEach(function(item) {
-		const card = document.createElement("article");
-
-		card.className = "news-card";
-
-		const image =
-			item.image ||
-			"https://via.placeholder.com/600x400";
-
-		const date = item.publishedAt
-			? new Date(item.publishedAt).toLocaleDateString("vi-VN")
-			: "Unknown date";
-
-		card.innerHTML = `
-			<div class="news-image">
-				<img
-					src="${image}"
-					alt="${item.title}"
-				>
-
-				<span class="news-category">
-					ANIME
-				</span>
-			</div>
-
-			<div class="news-content">
-
-				<p class="news-date">
-					<i class="fa-regular fa-calendar"></i>
-					${date}
-				</p>
-
-				<h3>
-					${item.title}
-				</h3>
-
-				<p>
-					${item.description || "No description available."}
-				</p>
-
-				<a
-					href="${item.url}"
-					target="_blank"
-					class="read-more"
-				>
-					Read More
-					<i class="fa-solid fa-arrow-right"></i>
-				</a>
-
-			</div>
-		`;
-
-		newsGrid.appendChild(card);
-	});
-}
-
-function filterNews() {
-	const keyword = searchInput.value.toLowerCase().trim();
-	const category = categorySelect.value;
-
-	const filteredNews = newsData.filter(function(item) {
-		const title = (item.title || "").toLowerCase();
-		const description = (item.description || "").toLowerCase();
-		const content = (item.content || "").toLowerCase();
-
-		const matchSearch =
-			title.includes(keyword) ||
-			description.includes(keyword) ||
-			content.includes(keyword);
-
-		let matchCategory = true;
-
-		if (category === "anime") {
-			matchCategory =
-				title.includes("anime") ||
-				description.includes("anime") ||
-				content.includes("anime");
-		}
-
-		if (category === "movie") {
-			matchCategory =
-				title.includes("movie") ||
-				description.includes("movie") ||
-				content.includes("movie");
-		}
-
-		if (category === "event") {
-			matchCategory =
-				title.includes("event") ||
-				description.includes("event") ||
-				content.includes("event");
-		}
-
-		return matchSearch && matchCategory;
-	});
-
-	renderNews(filteredNews);
-}
-
-searchInput.addEventListener("input", filterNews);
-
-categorySelect.addEventListener("change", filterNews);
 
 getNews();
