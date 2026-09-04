@@ -13,7 +13,7 @@ async function getNews() {
 			</div>
 		`;
 
-		const response = await fetch("https://api.tenrai.org/v1/news");
+		const response = await fetch("https://aninews.vercel.app/api/news?limit=10");
 
 		if (!response.ok) {
 			throw new Error("API Error: " + response.status);
