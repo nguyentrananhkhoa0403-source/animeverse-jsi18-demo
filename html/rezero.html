@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeVerse - Re:Zero</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <h2 class="logo">AnimeVerse</h2>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="anime.html">Anime</a></li>
+            <li><a href="#characters">Characters</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="news.html">News</a></li>
+        </ul>
+    </nav>
+</header>
+    <main class="anime-detail">
+        <section class="anime-hero">
+            <img id="animeImage" src="" alt="Re:Zero">
+            <div class="anime-content">
+                <h1 id="animeTitle">Loading...</h1>
+                <p id="animeJapanese"></p>
+                <p id="animeScore"></p>
+                <p id="animeEpisodes"></p>
+                <p id="animeStatus"></p>
+                <p id="animeType"></p>
+                <div class="anime-genres" id="animeGenres"></div>
+            </div>
+        </section>
+        <section class="anime-description">
+            <h2>Synopsis</h2>
+            <p id="animeSynopsis">Loading...</p>
+        </section>
+        <section class="anime-information">
+            <h2>Information</h2>
+            <div class="information-grid">
+                <div>
+                    <h3>Rank</h3>
+                    <p id="animeRank">Loading...</p>
+                </div>
+                <div>
+                    <h3>Popularity</h3>
+                    <p id="animePopularity">Loading...</p>
+                </div>
+                <div>
+                    <h3>Year</h3>
+                    <p id="animeYear">Loading...</p>
+                </div>
+                <div>
+                    <h3>Duration</h3>
+                    <p id="animeDuration">Loading...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h2>AnimeVerse</h2>
+        <p>Explore The Amazing World Of Anime</p>
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <p class="copyright">
+            © 2026 AnimeVerse. All Rights Reserved.
+        </p>
+    </footer>
+    <script src="../js/rezero.js"></script>
+    <script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="16kRWg5aQx0Wsu4Xy5dsD";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+</body>
+</html>

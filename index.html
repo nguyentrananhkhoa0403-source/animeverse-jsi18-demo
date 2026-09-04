@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeVerse</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <h2 class="logo">AnimeVerse</h2>
+        <ul class="nav-links">
+            <li><a href="html/anime.html">Anime</a></li>
+            <li><a href="#characters">Characters</a></li>
+            <li><a href="html/gallery.html">Gallery</a></li>
+            <li><a href="html/about.html">About</a></li>
+            <li><a href="html/news.html">News</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1>Welcome To AnimeVerse</h1>
+        <p>Explore the amazing world of Anime.</p>
+        <button id="exploreBtn">Explore Now</button>
+    </div>
+</section>
+
+<section class="anime-section" id="anime">
+    <h2 class="section-title">Những Anime nổi tiếng nhất</h2>
+    <div class="anime-grid" id="animeGrid"></div>
+</section>
+
+
+<section class="gallery-section" id="gallery">
+    <h2 class="section-title">Anime Gallery</h2>
+    <div class="gallery-grid">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF1yYvSudLNzrYLqmJB3IZoSEsZKGdGMBOJNIiuI7b7MaQoEGkxli2K-nR&s=10" alt="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_hfqAA91c1Zg5Jjls4751Mhz_MVrcKEFOhpegkJx40v1mWzB0iDKv4LI&s=10" alt="">
+        <img src="https://wallpaperaccess.com/full/2725441.jpg" alt="">
+        <img src="https://images7.alphacoders.com/139/thumb-1920-1398431.jpg" alt="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV8EMYfyvIxgYPJnHbyR2HNpMVLppoP14inRt9tBa4VfQvkAjXu31EWRo&s=10" alt="">
+        <img src="https://images8.alphacoders.com/133/thumb-1920-1332278.jpeg" alt="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_vnyRZoyESRBzR4WDUshQA4V_ymoaVOcB_wUK3PGlDw&s" alt="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsx-xCvommGqOcxSXmaPa0CXuzLiaQYJPUz-8EGLdD8g&s=10" alt="">
+    </div>
+</section>
+
+<section class="about" id="about">
+    <h2 class="section-title">Về AnimeVerse</h2>
+    <div class="about-content">
+        <p>
+            AnimeVerse là website giới thiệu những bộ anime nổi tiếng, nhân vật được yêu thích
+            và bộ sưu tập hình ảnh dành cho cộng đồng yêu thích anime.
+        </p>
+        <p>
+            Website được xây dựng bằng HTML, CSS và JavaScript nhằm mang đến giao diện hiện đại,
+            dễ sử dụng và thân thiện trên nhiều thiết bị.
+        </p>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2 class="section-title">Liên hệ với chúng tôi</h2>
+    <div class="contact-info">
+        <p><i class="fa-solid fa-envelope"></i> animeverse@gmail.com</p>
+        <p><i class="fa-brands fa-facebook"></i> AnimeVerse Official</p>
+        <p><i class="fa-brands fa-instagram"></i> @animeverse</p>
+        <p><i class="fa-solid fa-location-dot"></i> Ho Chi Minh City, Vietnam</p>
+    </div>
+    <button class="contact-btn">Tham gia cộng đồng</button>
+</section>
+
+<footer>
+    <h2>AnimeVerse</h2>
+    <p>Khám phá một thế giới tuyệt vời của anime</p>
+    <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-github"></i></a>
+    </div>
+    <p class="copyright">
+        © 2026 AnimeVerse. All Rights Reserved.
+    </p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="16kRWg5aQx0Wsu4Xy5dsD";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+<script src="js/index.js"></script>
+</body>
+</html>
