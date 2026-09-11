@@ -61,7 +61,7 @@ loginForm.addEventListener("submit", async function(event) {
 
 		alert("Đăng nhập thành công!");
 
-		window.location.href = "index.html";
+		window.location.href = "../index.html";
 
 	} catch (error) {
 		console.log(error);
