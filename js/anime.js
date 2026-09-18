@@ -1,16 +1,4 @@
-import { getAuth, onAuthStateChanged } from
-    "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-import { app } from "./firebase-config.js";
-
-const auth = getAuth(app);
-
-onAuthStateChanged(auth, (user) => {
-    if (!user) {
-        // Chưa đăng nhập -> chuyển về trang login
-        window.location.href = "login.html";
-    }
-});
 const animeList=document.getElementById("animeList");
 const nextButton=document.getElementById("nextButton");
 const backButton=document.getElementById("backButton");

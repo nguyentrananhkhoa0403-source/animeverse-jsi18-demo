@@ -152,28 +152,22 @@ footer p{
     margin:10px 0;
 }
 .social-icons{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:15px;
     margin:25px 0;
 }
 .social-icons a{
-    display:flex;
+    display:inline-flex;
     justify-content:center;
     align-items:center;
     width:45px;
     height:45px;
-    border-radius:50%;
+    margin:0 10px;
     background:#1e293b;
-    color:#fff;
-    text-decoration:none;
+    color:white;
+    border-radius:50%;
     transition:.3s;
 }
 .social-icons a:hover{
     background:#38bdf8;
-    color:#020617;
-    transform:translateY(-4px);
 }
 .copyright{
     color:#64748b;

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AnimeVerse</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../css/animelist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+</head>
+<body>
+
+	<header class="navbar">
+		<div class="container-fluid px-5">
+			<a href="../index.html" class="logo">AnimeVerse</a>
+
+			<nav class="nav-menu">
+				<a href="../index.html">Home</a>
+				<a href="animelist.html">Anime</a>
+				<a href="gallery.html">Gallery</a>
+				<a href="about.html">About</a>
+				<a href="news.html">News</a>
+            	<button id="logoutBtn">Đăng xuất</button>
+			</nav>
+		</div>
+	</header>
+
+	<main class="anime-list">
+		<div class="container">
+
+			<div class="text-center mb-5">
+				<h1>Anime List</h1>
+				<p>Manage your favorite Anime</p>
+			</div>
+
+			<div class="anime-form">
+				<h3 id="formTitle">Add Anime</h3>
+
+				<form id="animeForm">
+					<div class="row g-3">
+						<div class="col-md-6">
+							<label for="animeName">Anime Name</label>
+							<input type="text" id="animeName" class="form-control" placeholder="Enter anime name">
+						</div>
+
+						<div class="col-md-6">
+							<label for="animeGenre">Genre</label>
+							<input type="text" id="animeGenre" class="form-control" placeholder="Enter genre">
+						</div>
+
+						<div class="col-md-6">
+							<label for="animeYear">Release Year</label>
+							<input type="number" id="animeYear" class="form-control" placeholder="Enter release year">
+						</div>
+
+						<div class="col-md-6">
+							<label for="animeImage">Image URL</label>
+							<input type="text" id="animeImage" class="form-control" placeholder="Enter image URL">
+						</div>
+
+						<div class="col-12">
+							<label for="animeDescription">Description</label>
+							<textarea id="animeDescription" class="form-control" rows="3" placeholder="Enter description"></textarea>
+						</div>
+
+						<div class="col-12">
+							<button type="submit" class="btn btn-primary" id="submitBtn">
+								<i class="fa-solid fa-plus"></i> Add Anime
+							</button>
+
+							<button type="button" class="btn btn-secondary d-none" id="cancelBtn">
+								Cancel
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="anime-list-content">
+				<div class="d-flex justify-content-between align-items-center mb-4">
+					<h3>Anime Collection</h3>
+					<input type="text" id="searchInput" class="form-control search-input" placeholder="Search anime...">
+				</div>
+
+				<div class="row g-4" id="animeList"></div>
+			</div>
+
+		</div>
+	</main>
+
+    <footer>
+        <h2>AnimeVerse</h2>
+        <p>Explore The Amazing World Of Anime</p>
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <p class="copyright">
+            © 2026 AnimeVerse. All Rights Reserved.
+        </p>
+    </footer>
+    <script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="16kRWg5aQx0Wsu4Xy5dsD";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+	<script src="../js/animelist.js"></script>
+	<script type="module" src="../js/auth-guard.js"></script>
+	<script type="module" src="../js/logout.js"></script>
+</body>
+</html>

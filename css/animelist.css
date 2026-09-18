@@ -1,0 +1,286 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	background: #0f172a;
+	color: #f8fafc;
+}
+
+.navbar {
+	height: 92px;
+	background: #111827;
+	display: flex;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+}
+
+.logo {
+	color: #38bdf8;
+	font-size: 30px;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.nav-menu {
+	display: flex;
+	align-items: center;
+	gap: 28px;
+	margin-left: auto;
+}
+
+.nav-menu a {
+	color: #f8fafc;
+	font-size: 15px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.nav-menu a:hover {
+	color: #38bdf8;
+}
+
+.nav-menu .logout-btn {
+	background: #38bdf8;
+	color: #fff;
+	padding: 13px 25px;
+	border-radius: 6px;
+	font-weight: 500;
+}
+
+.nav-menu .logout-btn:hover {
+	background: #0284c7;
+	color: #fff;
+}
+
+.anime-list {
+	padding: 140px 0 80px;
+	min-height: 100vh;
+}
+
+.anime-list h1 {
+	color: #38bdf8;
+	font-size: 42px;
+	font-weight: 700;
+}
+
+.anime-list > .container > .text-center p {
+	color: #94a3b8;
+}
+
+.anime-form {
+	background: #1e293b;
+	padding: 30px;
+	border-radius: 15px;
+	margin-bottom: 50px;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.anime-form h3,
+.anime-list-content h3 {
+	color: #38bdf8;
+	font-weight: 600;
+	margin-bottom: 25px;
+}
+
+.anime-form label {
+	color: #cbd5e1;
+	margin-bottom: 8px;
+	font-weight: 500;
+}
+
+.form-control {
+	background: #0f172a;
+	border: 1px solid #334155;
+	color: #f8fafc;
+	padding: 12px 15px;
+	border-radius: 8px;
+}
+
+.form-control:focus {
+	background: #0f172a;
+	border-color: #38bdf8;
+	color: #f8fafc;
+	box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+.form-control::placeholder {
+	color: #64748b;
+}
+
+.btn-primary {
+	background: #38bdf8;
+	border: none;
+	color: #0f172a;
+	font-weight: 600;
+	padding: 11px 20px;
+	border-radius: 8px;
+}
+
+.btn-primary:hover {
+	background: #0284c7;
+	color: #fff;
+}
+
+.btn-secondary {
+	padding: 11px 20px;
+	border-radius: 8px;
+	margin-left: 8px;
+}
+
+.search-input {
+	width: 250px;
+}
+
+.anime-card {
+	background: #1e293b;
+	border-radius: 15px;
+	overflow: hidden;
+	height: 100%;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+}
+
+.anime-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
+}
+
+.anime-card img {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+}
+
+.anime-card-content {
+	padding: 20px;
+}
+
+.anime-card h4 {
+	color: #f8fafc;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.anime-card p {
+	color: #94a3b8;
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+.anime-card .genre {
+	color: #38bdf8;
+}
+
+.anime-actions {
+	display: flex;
+	gap: 8px;
+	margin-top: 15px;
+}
+
+.anime-actions button {
+	border: none;
+	padding: 8px 14px;
+	border-radius: 7px;
+	font-size: 14px;
+}
+
+.edit-btn {
+	background: #38bdf8;
+	color: #0f172a;
+}
+
+.delete-btn {
+	background: #ef4444;
+	color: #fff;
+}
+
+footer {
+	background: #020617;
+	padding: 25px 0;
+	color: #64748b;
+}
+
+
+@media (max-width: 768px) {
+	.navbar {
+		height: auto;
+		padding: 20px;
+	}
+
+	.nav-menu {
+		gap: 12px;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+	}
+
+	.logo {
+		font-size: 24px;
+	}
+
+	.nav-menu a {
+		font-size: 13px;
+	}
+
+	.nav-menu .logout-btn {
+		padding: 9px 15px;
+	}
+
+	.anime-list {
+		padding-top: 150px;
+	}
+
+	.anime-list h1 {
+		font-size: 32px;
+	}
+
+	.search-input {
+		width: 180px;
+	}
+
+	.anime-card img {
+		height: 250px;
+	}
+}
+footer{
+    background:#020617;
+    text-align:center;
+    padding:40px 20px;
+}
+footer h2{
+    color:#38bdf8;
+    margin-bottom:15px;
+}
+footer p{
+    margin:10px 0;
+}
+.social-icons{
+    margin:25px 0;
+}
+.social-icons a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:45px;
+    height:45px;
+    margin:0 10px;
+    background:#1e293b;
+    color:white;
+    border-radius:50%;
+    transition:.3s;
+}
+.social-icons a:hover{
+    background:#38bdf8;
+}
+.copyright{
+    font-size:14px;
+    color:#94a3b8;
+}
