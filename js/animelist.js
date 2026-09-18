@@ -1,3 +1,6 @@
+const CLOUD_NAME = "bubpr9od";
+const UPLOAD_PRESET = "AnimeVerse";
+
 const animeForm = document.getElementById("animeForm");
 const animeName = document.getElementById("animeName");
 const animeGenre = document.getElementById("animeGenre");
@@ -41,30 +44,89 @@ function renderAnime(data = animeData) {
 	});
 }
 
-animeForm.addEventListener("submit", function(e) {
-	e.preventDefault();
+async function uploadImage(file) {
+	const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
 
-	const anime = {
-		id: editId || Date.now(),
-		name: animeName.value.trim(),
-		genre: animeGenre.value.trim(),
-		year: animeYear.value,
-		image: animeImage.value.trim(),
-		description: animeDescription.value.trim()
-	};
+	const formData = new FormData();
+	formData.append("file", file);
+	formData.append("upload_preset", UPLOAD_PRESET);
 
-	if (editId) {
-		animeData = animeData.map(item => {
-			return item.id === editId ? anime : item;
-		});
-	} else {
-		animeData.push(anime);
+	const response = await fetch(url, {
+		method: "POST",
+		body: formData
+	});
+
+	if (!response.ok) {
+		throw new Error("Upload image failed");
 	}
 
-	localStorage.setItem("animeData", JSON.stringify(animeData));
+	const data = await response.json();
 
-	resetForm();
-	renderAnime();
+	return data.secure_url;
+}
+
+animeForm.addEventListener("submit", async function(e) {
+	e.preventDefault();
+
+	const file = animeImage.files[0];
+
+	try {
+		submitBtn.disabled = true;
+		submitBtn.innerHTML = "Uploading...";
+
+		let imageUrl = "";
+
+		if (editId) {
+			const oldAnime = animeData.find(item => item.id === editId);
+			imageUrl = oldAnime.image;
+
+			if (file) {
+				imageUrl = await uploadImage(file);
+			}
+		} else {
+			if (!file) {
+				alert("Please choose an image");
+				submitBtn.disabled = false;
+				submitBtn.innerHTML = '<i class="fa-solid fa-plus"></i> Add Anime';
+				return;
+			}
+
+			imageUrl = await uploadImage(file);
+		}
+
+		const anime = {
+			id: editId || Date.now(),
+			name: animeName.value.trim(),
+			genre: animeGenre.value.trim(),
+			year: animeYear.value,
+			image: imageUrl,
+			description: animeDescription.value.trim()
+		};
+
+		if (editId) {
+			animeData = animeData.map(item => {
+				return item.id === editId ? anime : item;
+			});
+		} else {
+			animeData.push(anime);
+		}
+
+		localStorage.setItem("animeData", JSON.stringify(animeData));
+
+		resetForm();
+		renderAnime();
+	} catch (error) {
+		console.error(error);
+		alert("Upload ảnh thất bại!");
+	} finally {
+		submitBtn.disabled = false;
+
+		if (editId) {
+			submitBtn.innerHTML = '<i class="fa-solid fa-pen"></i> Update Anime';
+		} else {
+			submitBtn.innerHTML = '<i class="fa-solid fa-plus"></i> Add Anime';
+		}
+	}
 });
 
 function editAnime(id) {
@@ -77,7 +139,6 @@ function editAnime(id) {
 	animeName.value = anime.name;
 	animeGenre.value = anime.genre;
 	animeYear.value = anime.year;
-	animeImage.value = anime.image;
 	animeDescription.value = anime.description;
 
 	editId = id;
