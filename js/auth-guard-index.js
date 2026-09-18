@@ -1,7 +1,7 @@
 import { getAuth, onAuthStateChanged } from
     "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
-import { app } from "./firebase-config.js";
+import { app } from "./js/firebase-config.js";
 
 const auth = getAuth(app);
 
