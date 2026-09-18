@@ -1,5 +1,7 @@
-import { getAuth, signOut } from
-    "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+import {
+    getAuth,
+    signOut
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
 import { app } from "./firebase-config.js";
 
@@ -12,7 +14,10 @@ logoutBtn.addEventListener("click", async () => {
         await signOut(auth);
 
         alert("Đăng xuất thành công!");
-        window.location.href = "./html/login.html";
+
+        window.location.replace(
+            new URL("./html/login.html", window.location.href).href
+        );
 
     } catch (error) {
         console.error("Lỗi đăng xuất:", error);
