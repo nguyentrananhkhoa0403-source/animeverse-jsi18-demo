@@ -89,7 +89,6 @@ registerForm.addEventListener("submit", async function(event) {
 
 		alert("Đăng ký thành công!");
 
-		window.location.href = "../html/login.html";
 
 	} catch (error) {
 		console.log(error);
